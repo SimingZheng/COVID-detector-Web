@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detector</title>
+    <link rel="styleSheet"  href="{{ url_for('static', filename='detector.css') }}" />
+    <link rel="styleSheet"  href="{{ url_for('static', filename='checkbox.css') }}" />
+</head>
+<body>
+<form action="" enctype='multipart/form-data' method='POST'>
+<div class="top-block">
+    <div class="image-block">
+        <img src="{{ url_for('static', filename='empty_image.jpg') }}" id="img-txz" class="user-img" alt="image" style="border-width: 2px;border-style: solid;
+    border-color: #000080;"/>
+        <input type="file" accept="image/*" id="file-txz" name="image" onchange="upload('#file-txz', '#img-txz');"  class="fileInput"  value="" />
+    </div>
+    <br>
+    <div class="model-block" style="font-size: large">
+        <p style="font-weight: bold">Choose models below:</p>
+        <label for="file" class="choose_model" style="margin-top:20px;">Choose Model</label>
+        <input id="file" type="file" name="model" style="display:none;">
+        <div class="model-1">
+            <input class="checkbox-1" type="checkbox" id="Model 1" name="model-1">
+            <label for="Model 1">Model 1: COVID19-XRay-Dataset</label>
+        </div>
+
+        <div class="model-1">
+            <input class="checkbox-1" type="checkbox" id="Model 2" name="model-2">
+            <label for="Model 2">Model 2: COVID-19 Radiography Database</label>
+        </div>
+
+        <div class="model-1">
+            <input class="checkbox-1" type="checkbox" id="Model 3" name="model-3">
+            <label for="Model 3">Model 3: N-CLAHE-MEDICAL-IMAGES</label>
+        </div>
+
+        <div class="model-1">
+            <input class="checkbox-1" type="checkbox" id="Model 4" name="model-4">
+            <label for="Model 4">Model 4: COVID-19 X rays + Chest X-Ray Images (Pneumonia)</label>
+        </div>
+
+        <div class="model-5">
+            <input class="checkbox-1" type="checkbox" id="Model 5" name="model-5">
+            <label for="Model 5">Model 5:  Combo Dataset</label>
+        </div>
+    </div>
+
+</div>
+<div class="bottom-block">
+        <input type="submit" value="Detect" class="detect" style="margin-top:15px; font-family: Times New Roman; font-weight: bold"/>
+</div>
+</form>
+<div class="result-block">
+    <p class="result-text" style="color: darkblue;" >Here show result:</p>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    var upload = function (c, d) {
+        "use strict";
+        var $c = document.querySelector(c),
+            $d = document.querySelector(d),
+            file = $c.files[0],
+            reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            $d.setAttribute("src", e.target.result);
+        };
+    // };
+    // const MODEL_URL = 'webModel/COVID19-XRay-Dataset_model.json'
+    // function detect(){
+    //     var model_num=[]
+    //     model_num[1] = document.getElementById("Model 1").checked;
+    //     model_num[2] = document.getElementById("Model 2").checked;
+    //     model_num[3] = document.getElementById("Model 3").checked;
+    //     model_num[4] = document.getElementById("Model 4").checked;
+    //     model_num[5] = document.getElementById("Model 5").checked;
+        // alert("asdfasdfsdf");
+    //     var formData=new FormData();
+    //     var image_object = document.getElementById('file-txz').files[0];
+    //     formData.append('img',image_object)
+    //     alert(image_object);
+    //     $.ajax({
+    //         url: "/predict",
+    //         data:formData,
+    //         cache:false,
+    //         processData:false,
+    //         contentType:false,
+    //         type:'POST',
+    //         success:function (data) {
+    //             if (data.signal === 1) {
+    //                 document.getElementById('up_success').innerHTML = '<h3 id="up_success" style="height: 20px;color: darkgreen">success</h3>'
+    //                 document.getElementById('show_img').src = data.img_path
+    //             }
+    //         }
+    //     });
+    }
+</script>
