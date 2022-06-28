@@ -3,5 +3,5 @@
 This project developed by Flask
 
 Run program with Flask:
-$env:FLASK_APP="test.py"
-python -m flask run
+\n $env:FLASK_APP="test.py"
+\n python -m flask run
