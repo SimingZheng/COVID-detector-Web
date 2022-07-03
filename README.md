@@ -12,10 +12,10 @@ Google cloud deploy:
  <br/> git config --global user.name "Your Name"
 
 Run Flask:
-<br/> >$env:FLASK_APP="main.py" 
+<br/> >$env:FLASK_APP="test.py" 
 <br/> >flask run
 or
-<br/> >set FLASK_APP=main.py
+<br/> >set FLASK_APP=test.py
 
 Anaconda configuration:
 <br/> >conda info --envs
