@@ -2,7 +2,6 @@
 
 This project developed by Flask
 
-# Correlation-Calculator
 Google cloud deploy:
 <br/>$gcloud config set project <PROJECT_ID>
 <br/>$gcloud app deploy
